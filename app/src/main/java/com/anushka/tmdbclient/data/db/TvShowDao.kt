@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient.data
+package com.anushka.tmdbclient.data.db
 
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy

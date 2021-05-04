@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient.data
+package com.anushka.tmdbclient.data.db
 
 import androidx.room.Database
 import com.anushka.tmdbclient.data.model.artist.Artist
