@@ -1,11 +1,11 @@
-package com.anushka.tmdbclient.data.model.movie
+package com.droid.tmdbclient.data.model.movie
 
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "" )
+@Entity(tableName = "popular_movies" )
 data class Movie(
 
     @PrimaryKey
