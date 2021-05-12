@@ -1,7 +1,7 @@
-package com.anushka.tmdbclient.domain
+package com.anushka.tmdbclient.domain.usecase
 
 import com.anushka.tmdbclient.data.model.artist.Artist
-import com.anushka.tmdbclient.data.model.movie.Movie
+import com.anushka.tmdbclient.domain.repository.ArtistRepository
 
 class GetArtistUsecase (private val artistRepository: ArtistRepository) {
 
