@@ -1,6 +1,6 @@
-package com.anushka.tmdbclient.domain.repository
+package com.droid.tmdbclient.domain.repository
 
-import com.anushka.tmdbclient.data.model.tvshow.TvShow
+import com.droid.tmdbclient.data.model.tvshow.TvShow
 
 
 interface  TvShowsRepository {

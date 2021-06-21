@@ -1,10 +1,10 @@
-package com.anushka.tmdbclient.data.db
+package com.droid.tmdbclient.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.anushka.tmdbclient.data.model.movie.Movie
+import com.droid.tmdbclient.data.model.movie.Movie
 
 @Dao
 interface MovieDao {

@@ -1,6 +1,7 @@
-package com.anushka.tmdbclient.data.repository
+package com.droid.tmdbclient.data.repository
 
-import com.anushka.tmdbclient.data.model.movie.Movie
+import com.droid.tmdbclient.data.model.movie.Movie
+
 
 interface MovieCacheDataSource  {
     suspend fun getMoviewsFromCache(): List<Movie>

@@ -1,12 +1,11 @@
-package com.anushka.tmdbclient.data.db
+package com.droid.tmdbclient.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.anushka.tmdbclient.data.model.artist.Artist
-import com.anushka.tmdbclient.data.model.artist.ArtistList
-import com.anushka.tmdbclient.data.model.movie.Movie
+import com.droid.tmdbclient.data.model.artist.Artist
+
 
 @Dao
 interface ArtistDao {

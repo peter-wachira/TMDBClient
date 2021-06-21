@@ -1,14 +1,14 @@
-package com.anushka.tmdbclient.data.repository
+package com.droid.tmdbclient.data.repository
 
 import android.util.Log
-import com.anushka.tmdbclient.data.model.movie.Movie
-import com.anushka.tmdbclient.domain.repository.MovieRepository
+import com.droid.tmdbclient.domain.repository.MovieRepository
+import com.droid.tmdbclient.data.model.movie.Movie
 
 class MovieRepositoryImpl (
     private val movieRemoteDataSource: MovieRemoteDataSource,
     private val movieLocalDataSource: MovieLocalDataSource,
     private val movieCacheDataSource: MovieCacheDataSource
-        ) : MovieRepository{
+        ) : MovieRepository {
     override suspend fun getMovies(): List<Movie>? {
         TODO("Not yet implemented")
     }

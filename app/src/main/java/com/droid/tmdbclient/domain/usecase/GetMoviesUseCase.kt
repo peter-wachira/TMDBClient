@@ -1,7 +1,7 @@
-package com.anushka.tmdbclient.domain.usecase
+package com.droid.tmdbclient.domain.usecase
 
-import com.anushka.tmdbclient.data.model.movie.Movie
-import com.anushka.tmdbclient.domain.repository.MovieRepository
+import com.droid.tmdbclient.domain.repository.MovieRepository
+import com.droid.tmdbclient.data.model.movie.Movie
 
 class GetMoviesUseCase(private val movieRepository: MovieRepository) {
 

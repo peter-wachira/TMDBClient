@@ -1,6 +1,7 @@
-package com.anushka.tmdbclient.domain.repository
+package com.droid.tmdbclient.domain.repository
 
-import com.anushka.tmdbclient.data.model.artist.Artist
+import com.droid.tmdbclient.data.model.artist.Artist
+
 
 interface ArtistRepository {
 
