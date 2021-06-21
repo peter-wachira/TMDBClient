@@ -1,4 +1,4 @@
-package com.droid.tmdbclient.data.repository
+package com.droid.tmdbclient.data.repository.movie.datasource
 
 import com.droid.tmdbclient.data.model.movie.Movie
 
