@@ -8,11 +8,11 @@ import com.droid.tmdbclient.data.model.tvshow.TvShow
 
 interface TvShowDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveMovies(movies: List<TvShow>)
+    suspend fun saveTvShows(movies: List<TvShow>)
 
     @Query("DELETE FROM popular_tvshows ")
-    suspend fun deleteAllMovies()
+    suspend fun deleteAllTvShows()
 
     @Query("SELECT * FROM popular_tvshows")
-    suspend fun getMovies(): List<TvShow>
+    suspend fun getTvShows(): List<TvShow>
 }
