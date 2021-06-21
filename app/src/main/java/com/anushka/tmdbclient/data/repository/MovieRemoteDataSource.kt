@@ -1,4 +1,4 @@
-package com.droid.tmdbclient.data.repository
+package com.anushka.tmdbclient.data.repository
 
 import com.droid.tmdbclient.data.model.movie.MovieList
 import retrofit2.Response
