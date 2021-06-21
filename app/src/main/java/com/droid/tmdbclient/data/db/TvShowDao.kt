@@ -1,10 +1,10 @@
-package com.droid.tmdbclient.data.db
+package com.anushka.tmdbclient.data.db
 
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.droid.tmdbclient.data.model.movie.Movie
-import com.droid.tmdbclient.data.model.tvshow.TvShow
+import com.anushka.tmdbclient.data.model.movie.Movie
+import com.anushka.tmdbclient.data.model.tvshow.TvShow
 
 interface TvShowDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

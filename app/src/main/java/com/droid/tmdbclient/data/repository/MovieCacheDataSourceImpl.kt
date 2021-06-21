@@ -1,6 +1,6 @@
-package com.droid.tmdbclient.data.repository
+package com.anushka.tmdbclient.data.repository
 
-import com.droid.tmdbclient.data.model.movie.Movie
+import com.anushka.tmdbclient.data.model.movie.Movie
 
 class MovieCacheDataSourceImpl : MovieCacheDataSource{
     private  var movieList = ArrayList<Movie>()
