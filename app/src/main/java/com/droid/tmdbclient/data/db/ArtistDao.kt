@@ -10,11 +10,11 @@ import com.droid.tmdbclient.data.model.artist.Artist
 @Dao
 interface ArtistDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveTvShows(movies: List<Artist>)
+    suspend fun saveArtists(movies: List<Artist>)
 
     @Query("DELETE FROM popular_artist")
-    suspend fun deleteAllTvShows(artistList: List<Artist>)
+    suspend fun deleteAllArtists()
 
     @Query("SELECT * FROM popular_artist")
-    suspend fun getTvShows(): List<Artist>
+    suspend fun getArtists(): List<Artist>
 }

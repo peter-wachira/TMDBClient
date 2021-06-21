@@ -2,6 +2,9 @@ package com.droid.tmdbclient.data.repository
 
 import android.util.Log
 import com.droid.tmdbclient.data.model.movie.Movie
+import com.droid.tmdbclient.data.repository.movie.datasource.MovieCacheDataSource
+import com.droid.tmdbclient.data.repository.movie.datasource.MovieLocalDataSource
+import com.droid.tmdbclient.data.repository.movie.datasource.MovieRemoteDataSource
 import com.droid.tmdbclient.domain.repository.MovieRepository
 
 class MovieRepositoryImpl(
