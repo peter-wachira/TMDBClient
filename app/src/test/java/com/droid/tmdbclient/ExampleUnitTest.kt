@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient
+package com.droid.tmdbclient
 
 import org.junit.Test
 
