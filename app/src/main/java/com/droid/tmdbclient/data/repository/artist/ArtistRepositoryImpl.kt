@@ -1,4 +1,4 @@
-package com.droid.tmdbclient.data.repository
+package com.droid.tmdbclient.data.repository.artist
 
 import ArtistRemoteDataSource
 import android.util.Log
@@ -8,52 +8,48 @@ import com.droid.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSou
 import com.droid.tmdbclient.domain.repository.ArtistRepository
 
 class ArtistRepositoryImpl(
-    private val artistRemoteDataSource: ArtistRemoteDataSource,
+    private val artistRemoteDatasource: ArtistRemoteDataSource,
     private val artistLocalDataSource: ArtistLocalDataSource,
     private val artistCacheDataSource: ArtistCacheDataSource
 ) : ArtistRepository {
     override suspend fun getArtists(): List<Artist>? {
-        return  getArtistsFromCache()
+        return getArtistsFromCache()
     }
 
     override suspend fun updateArtist(): List<Artist>? {
-        val newListOfArtists = getArtistsFromAPI()
+        val newListOfArtist = getArtistsFromAPI()
         artistLocalDataSource.clearAll()
-        artistLocalDataSource.saveArtistsToDB(newListOfArtists)
-        artistCacheDataSource.saveArtistsToCache(newListOfArtists)
-        return newListOfArtists
+        artistLocalDataSource.saveArtistsToDB(newListOfArtist)
+        artistCacheDataSource.saveArtistsToCache(newListOfArtist)
+        return newListOfArtist
     }
 
     suspend fun getArtistsFromAPI(): List<Artist> {
         lateinit var artistList: List<Artist>
-
         try {
-            val response = artistRemoteDataSource.getArtists()
+            val response = artistRemoteDatasource.getArtists()
             val body = response.body()
             if (body != null) {
                 artistList = body.artists
             }
-
         } catch (exception: Exception) {
-            Log.i("MYTAG", exception.message.toString())
+            Log.i("MyTag", exception.message.toString())
         }
         return artistList
     }
 
-    suspend fun getMoviesFromDB(): List<Artist> {
+    suspend fun getArtistsFromDB(): List<Artist> {
         lateinit var artistList: List<Artist>
-
         try {
             artistList = artistLocalDataSource.getArtistsFromDB()
-
         } catch (exception: Exception) {
-            Log.i("MYTAG", exception.message.toString())
-            if (artistList.isNotEmpty()) {
-                return artistList
-            } else {
-                artistList = getArtistsFromAPI()
-                artistLocalDataSource.saveArtistsToDB(artistList)
-            }
+            Log.i("MyTag", exception.message.toString())
+        }
+        if (artistList.size > 0) {
+            return artistList
+        } else {
+            artistList = getArtistsFromDB()
+            artistLocalDataSource.saveArtistsToDB(artistList)
         }
 
         return artistList
@@ -61,19 +57,19 @@ class ArtistRepositoryImpl(
 
     suspend fun getArtistsFromCache(): List<Artist> {
         lateinit var artistList: List<Artist>
-
         try {
             artistList = artistCacheDataSource.getArtistsFromCache()
         } catch (exception: Exception) {
-            Log.i("MYTAG", exception.message.toString())
+            Log.i("MyTag", exception.message.toString())
         }
-
-        if (artistList.isNotEmpty()) {
+        if (artistList.size > 0) {
             return artistList
         } else {
-            artistList = getArtistsFromAPI()
-            artistLocalDataSource.saveArtistsToDB(artistList)
+            artistList = getArtistsFromDB()
+            artistCacheDataSource.saveArtistsToCache(artistList)
         }
+
         return artistList
     }
+
 }
