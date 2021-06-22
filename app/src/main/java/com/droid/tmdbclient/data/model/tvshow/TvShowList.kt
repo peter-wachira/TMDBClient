@@ -1,13 +1,13 @@
-package com.anushka.tmdbclient.data.model.artist
+package com.droid.tmdbclient.data.model.tvshow
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ArtistList(
+data class TvShowList(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
-    val artists: List<Artist>,
+    val tvShows: List<TvShow>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")

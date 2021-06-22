@@ -1,8 +1,8 @@
-package com.anushka.tmdbclient.data.api
+package com.droid.tmdbclient.data.api
 
-import com.anushka.tmdbclient.data.model.artist.ArtistList
-import com.anushka.tmdbclient.data.model.movie.MovieList
-import com.anushka.tmdbclient.data.model.tvshow.TvShowList
+import com.droid.tmdbclient.data.model.artist.ArtistList
+import com.droid.tmdbclient.data.model.movie.MovieList
+import com.droid.tmdbclient.data.model.tvshow.TvShowList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

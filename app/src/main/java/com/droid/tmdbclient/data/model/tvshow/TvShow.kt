@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient.data.model.tvshow
+package com.droid.tmdbclient.data.model.tvshow
 
 
 import com.google.gson.annotations.SerializedName
