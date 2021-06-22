@@ -15,5 +15,4 @@ class ArtistRemoteDataSourceImpl (private val tmdbService: TMDBService, private 
         return tmdbService.getPopularArtists(apiKey)
     }
 
-
 }

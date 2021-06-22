@@ -6,7 +6,11 @@ import com.droid.tmdbclient.data.model.movie.Movie
 import com.droid.tmdbclient.data.model.tvshow.TvShow
 
 
-@Database(entities = [Movie::class, TvShow:: class, Artist::class], version = 1,exportSchema = false)
+@Database(
+    entities = [Movie::class, TvShow::class, Artist::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class TMDBDatabase {
     abstract fun  movieDao(): MovieDao
     abstract fun artistDao(): ArtistDao

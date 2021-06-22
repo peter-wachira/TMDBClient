@@ -1,4 +1,4 @@
-package com.droid.tmdbclient.data.repository
+package com.droid.tmdbclient.data.repository.movie
 
 import android.util.Log
 import com.droid.tmdbclient.data.model.movie.Movie
@@ -7,13 +7,14 @@ import com.droid.tmdbclient.data.repository.movie.datasource.MovieLocalDataSourc
 import com.droid.tmdbclient.data.repository.movie.datasource.MovieRemoteDataSource
 import com.droid.tmdbclient.domain.repository.MovieRepository
 
+
 class MovieRepositoryImpl(
-    private val movieRemoteDataSource: MovieRemoteDataSource,
+    private val movieRemoteDatasource: MovieRemoteDataSource,
     private val movieLocalDataSource: MovieLocalDataSource,
     private val movieCacheDataSource: MovieCacheDataSource
 ) : MovieRepository {
     override suspend fun getMovies(): List<Movie>? {
-        return  getMoviesFromCache()
+        return getMoviesFromCache()
     }
 
     override suspend fun updateMovies(): List<Movie>? {
@@ -26,54 +27,49 @@ class MovieRepositoryImpl(
 
     suspend fun getMoviesFromAPI(): List<Movie> {
         lateinit var movieList: List<Movie>
-
         try {
-            val response = movieRemoteDataSource.getMovies()
+            val response = movieRemoteDatasource.getMovies()
             val body = response.body()
-            if (body != null) {
+            if(body!=null){
                 movieList = body.movies
             }
-
         } catch (exception: Exception) {
-            Log.i("MYTAG", exception.message.toString())
+            Log.i("MyTag", exception.message.toString())
         }
         return movieList
     }
 
-    suspend fun getMoviesFromDB(): List<Movie> {
+    suspend fun getMoviesFromDB():List<Movie>{
         lateinit var movieList: List<Movie>
-
         try {
             movieList = movieLocalDataSource.getMoviesFromDB()
-
         } catch (exception: Exception) {
-            Log.i("MYTAG", exception.message.toString())
-            if (movieList.isNotEmpty()) {
-                return movieList
-            } else {
-                movieList = getMoviesFromAPI()
-                movieLocalDataSource.saveMoviesToDB(movieList)
-            }
+            Log.i("MyTag", exception.message.toString())
+        }
+        if(movieList.size>0){
+            return movieList
+        }else{
+            movieList=getMoviesFromAPI()
+            movieLocalDataSource.saveMoviesToDB(movieList)
         }
 
         return movieList
     }
 
-    suspend fun getMoviesFromCache(): List<Movie> {
+    suspend fun getMoviesFromCache():List<Movie>{
         lateinit var movieList: List<Movie>
-
         try {
-            movieList = movieCacheDataSource.getMoviewsFromCache()
+            movieList =movieCacheDataSource.getMoviesFromCache()
         } catch (exception: Exception) {
-            Log.i("MYTAG", exception.message.toString())
+            Log.i("MyTag", exception.message.toString())
+        }
+        if(movieList.size>0){
+            return movieList
+        }else{
+            movieList=getMoviesFromDB()
+            movieCacheDataSource.saveMoviesToCache(movieList)
         }
 
-        if (movieList.isNotEmpty()) {
-            return movieList
-        } else {
-            movieList = getMoviesFromAPI()
-            movieLocalDataSource.saveMoviesToDB(movieList)
-        }
         return movieList
     }
 }
