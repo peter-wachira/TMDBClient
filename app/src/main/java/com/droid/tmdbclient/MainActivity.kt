@@ -1,8 +1,7 @@
 package com.droid.tmdbclient
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.anushka.tmdbclient.R
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
