@@ -4,10 +4,11 @@ import android.util.Log
 import com.droid.tmdbclient.data.model.tvshow.TvShow
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDataSource
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowLocalDataSource
-import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDataSource
+import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDatasource
 import com.droid.tmdbclient.domain.repository.TvShowRepository
+
 class TvShowRepositoryImpl(
-    private val tvShowRemoteDatasource: TvShowRemoteDataSource,
+    private val tvShowRemoteDatasource: TvShowRemoteDatasource,
     private val tvShowLocalDataSource: TvShowLocalDataSource,
     private val tvShowCacheDataSource: TvShowCacheDataSource
 ) : TvShowRepository {
@@ -70,4 +71,6 @@ class TvShowRepositoryImpl(
 
         return tvShowsList
     }
+
+
 }

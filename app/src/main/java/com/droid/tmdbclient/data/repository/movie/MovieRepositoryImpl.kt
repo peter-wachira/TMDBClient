@@ -4,12 +4,12 @@ import android.util.Log
 import com.droid.tmdbclient.data.model.movie.Movie
 import com.droid.tmdbclient.data.repository.movie.datasource.MovieCacheDataSource
 import com.droid.tmdbclient.data.repository.movie.datasource.MovieLocalDataSource
-import com.droid.tmdbclient.data.repository.movie.datasource.MovieRemoteDataSource
+import com.droid.tmdbclient.data.repository.movie.datasource.MovieRemoteDatasource
 import com.droid.tmdbclient.domain.repository.MovieRepository
 
 
 class MovieRepositoryImpl(
-    private val movieRemoteDatasource: MovieRemoteDataSource,
+    private val movieRemoteDatasource: MovieRemoteDatasource,
     private val movieLocalDataSource: MovieLocalDataSource,
     private val movieCacheDataSource: MovieCacheDataSource
 ) : MovieRepository {
@@ -72,4 +72,6 @@ class MovieRepositoryImpl(
 
         return movieList
     }
+
+
 }
