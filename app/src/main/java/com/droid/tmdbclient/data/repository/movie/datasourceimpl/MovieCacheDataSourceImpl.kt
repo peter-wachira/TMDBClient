@@ -1,8 +1,7 @@
-package com.droid.tmdbclient.data.repository.movie.datasourceimpl
+package com.droid.tmdbclient.data.repository.movie.datasourceImpl
 
 import com.droid.tmdbclient.data.model.movie.Movie
 import com.droid.tmdbclient.data.repository.movie.datasource.MovieCacheDataSource
-
 
 class MovieCacheDataSourceImpl :
     MovieCacheDataSource {
@@ -13,7 +12,7 @@ class MovieCacheDataSourceImpl :
     }
 
     override suspend fun saveMoviesToCache(movies: List<Movie>) {
-        movieList.clear()
-        movieList = ArrayList(movies)
+       movieList.clear()
+       movieList = ArrayList(movies)
     }
 }
