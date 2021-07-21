@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+package com.droid.tmdbclient.data.repository.tvshow.datasourceimpl
+=======
+package com.droid.tmdbclient.data.repository.tvshow.datasourceImpl
+>>>>>>> d87a94931dbc7a74130a13797b3d6193fc63240c
+
+import com.droid.tmdbclient.data.model.tvshow.TvShow
+import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDataSource
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> d87a94931dbc7a74130a13797b3d6193fc63240c
+class TvShowCacheDataSourceImpl :
+    TvShowCacheDataSource {
+    private var tvShowList = ArrayList<TvShow>()
+
+    override suspend fun getTvShowsFromCache(): List<TvShow> {
+        return tvShowList
+    }
+
+    override suspend fun saveTvShowsToCache(tvShows: List<TvShow>) {
+<<<<<<< HEAD
+        tvShowList.clear()
+        tvShowList = ArrayList(tvShows)
+=======
+       tvShowList.clear()
+       tvShowList = ArrayList(tvShows)
+>>>>>>> d87a94931dbc7a74130a13797b3d6193fc63240c
+    }
+}
