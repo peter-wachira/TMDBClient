@@ -7,4 +7,5 @@ data class MovieList(
 
     @SerializedName("results")
     val movies: List<Movie>
+
 )
