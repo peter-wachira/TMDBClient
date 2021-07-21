@@ -1,5 +1,4 @@
 <layout>
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -9,7 +8,7 @@
         android:weightSum="3.0"
         tools:context=".presentation.HomeActivity">
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/movie_button"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
@@ -25,7 +24,7 @@
 
             />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/tv_button"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
@@ -39,7 +38,7 @@
             android:background="@drawable/btn_rounded"
             android:text="Tv Shows" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/artists_button"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"

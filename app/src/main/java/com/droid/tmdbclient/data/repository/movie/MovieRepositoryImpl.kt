@@ -7,6 +7,7 @@ import com.droid.tmdbclient.data.repository.movie.datasource.MovieLocalDataSourc
 import com.droid.tmdbclient.data.repository.movie.datasource.MovieRemoteDatasource
 import com.droid.tmdbclient.domain.repository.MovieRepository
 
+import java.lang.Exception
 
 class MovieRepositoryImpl(
     private val movieRemoteDatasource: MovieRemoteDatasource,
@@ -14,7 +15,8 @@ class MovieRepositoryImpl(
     private val movieCacheDataSource: MovieCacheDataSource
 ) : MovieRepository {
     override suspend fun getMovies(): List<Movie>? {
-        return getMoviesFromCache()
+
+       return getMoviesFromCache()
     }
 
     override suspend fun updateMovies(): List<Movie>? {
@@ -42,7 +44,8 @@ class MovieRepositoryImpl(
     suspend fun getMoviesFromDB():List<Movie>{
         lateinit var movieList: List<Movie>
         try {
-            movieList = movieLocalDataSource.getMoviesFromDB()
+
+           movieList = movieLocalDataSource.getMoviesFromDB()
         } catch (exception: Exception) {
             Log.i("MyTag", exception.message.toString())
         }
@@ -72,6 +75,5 @@ class MovieRepositoryImpl(
 
         return movieList
     }
-
 
 }

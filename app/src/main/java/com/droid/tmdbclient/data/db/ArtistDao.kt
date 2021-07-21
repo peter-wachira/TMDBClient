@@ -6,15 +6,15 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.droid.tmdbclient.data.model.artist.Artist
 
-
 @Dao
 interface ArtistDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveArtists(movies: List<Artist>)
 
-    @Query("DELETE FROM popular_artist")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveArtists(artists : List<Artist>)
+
+    @Query("DELETE FROM popular_artists")
     suspend fun deleteAllArtists()
 
-    @Query("SELECT * FROM popular_artist")
-    suspend fun getArtists(): List<Artist>
+    @Query("SELECT * FROM popular_artists")
+    suspend fun getArtists():List<Artist>
 }
