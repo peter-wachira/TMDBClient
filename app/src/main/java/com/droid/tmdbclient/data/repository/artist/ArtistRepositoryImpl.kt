@@ -1,20 +1,23 @@
 package com.droid.tmdbclient.data.repository.artist
 
-
 import android.util.Log
 import com.droid.tmdbclient.data.model.artist.Artist
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistCacheDataSource
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSource
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistRemoteDatasource
+
 import com.droid.tmdbclient.domain.repository.ArtistRepository
+import java.lang.Exception
 
 class ArtistRepositoryImpl(
     private val artistRemoteDatasource: ArtistRemoteDatasource,
     private val artistLocalDataSource: ArtistLocalDataSource,
     private val artistCacheDataSource: ArtistCacheDataSource
+
 ) : ArtistRepository {
     override suspend fun getArtists(): List<Artist>? {
-        return getArtistsFromCache()
+
+       return getArtistsFromCache()
     }
 
     override suspend fun updateArtists(): List<Artist>? {
@@ -30,7 +33,8 @@ class ArtistRepositoryImpl(
         try {
             val response = artistRemoteDatasource.getArtists()
             val body = response.body()
-            if (body != null) {
+
+            if(body!=null){
                 artistList = body.artists
             }
         } catch (exception: Exception) {
@@ -39,39 +43,39 @@ class ArtistRepositoryImpl(
         return artistList
     }
 
-    suspend fun getArtistsFromDB(): List<Artist> {
+    suspend fun getArtistsFromDB():List<Artist>{
         lateinit var artistList: List<Artist>
         try {
-            artistList = artistLocalDataSource.getArtistsFromDB()
+           artistList = artistLocalDataSource.getArtistsFromDB()
         } catch (exception: Exception) {
             Log.i("MyTag", exception.message.toString())
         }
-        if (artistList.size > 0) {
+        if(artistList.size>0){
             return artistList
-        } else {
-            artistList = getArtistsFromDB()
+        }else{
+            artistList=getArtistsFromDB()
             artistLocalDataSource.saveArtistsToDB(artistList)
         }
 
         return artistList
     }
 
-    suspend fun getArtistsFromCache(): List<Artist> {
+
+    suspend fun getArtistsFromCache():List<Artist>{
         lateinit var artistList: List<Artist>
         try {
-            artistList = artistCacheDataSource.getArtistsFromCache()
+            artistList =artistCacheDataSource.getArtistsFromCache()
         } catch (exception: Exception) {
             Log.i("MyTag", exception.message.toString())
         }
-        if (artistList.size > 0) {
+        if(artistList.size>0){
             return artistList
-        } else {
-            artistList = getArtistsFromDB()
+        }else{
+            artistList=getArtistsFromDB()
             artistCacheDataSource.saveArtistsToCache(artistList)
         }
 
         return artistList
     }
-
 
 }

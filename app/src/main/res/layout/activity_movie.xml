@@ -8,4 +8,5 @@
         tools:context=".presentation.movie.MovieActivity">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
