@@ -3,8 +3,8 @@ package com.droid.tmdbclient.data.repository.tvshow.datasource
 import com.droid.tmdbclient.data.model.tvshow.TvShow
 
 
-interface TvShowCacheDataSource  {
+interface TvShowCacheDataSource {
     suspend fun getTvShowsFromCache(): List<TvShow>
-    suspend fun saveTvShowsToCache(movies: List<TvShow>)
+    suspend fun saveTvShowsToCache(tvShows: List<TvShow>)
 
 }

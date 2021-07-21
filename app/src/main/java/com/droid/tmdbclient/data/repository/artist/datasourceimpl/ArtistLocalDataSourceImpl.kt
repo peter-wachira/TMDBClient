@@ -1,21 +1,16 @@
 package com.droid.tmdbclient.data.repository.artist.datasourceimpl
 
 import com.droid.tmdbclient.data.db.ArtistDao
-import com.droid.tmdbclient.data.db.MovieDao
 import com.droid.tmdbclient.data.model.artist.Artist
-import com.droid.tmdbclient.data.model.movie.Movie
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSource
-import com.droid.tmdbclient.data.repository.movie.datasource.MovieLocalDataSource
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ArtistLocalDataSourceImpl(private val artistDao: ArtistDao) : ArtistLocalDataSource {
-
-
+class ArtistLocalDataSourceImpl(private val artistDao: ArtistDao) :
+    ArtistLocalDataSource {
     override suspend fun getArtistsFromDB(): List<Artist> {
-        return  artistDao.getArtists()
+        return artistDao.getArtists()
     }
 
     override suspend fun saveArtistsToDB(artists: List<Artist>) {
@@ -29,5 +24,4 @@ class ArtistLocalDataSourceImpl(private val artistDao: ArtistDao) : ArtistLocalD
             artistDao.deleteAllArtists()
         }
     }
-
 }
