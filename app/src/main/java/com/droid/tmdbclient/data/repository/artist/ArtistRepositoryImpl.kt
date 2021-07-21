@@ -1,10 +1,11 @@
 package com.droid.tmdbclient.data.repository.artist
 
-import ArtistRemoteDatasource
+
 import android.util.Log
 import com.droid.tmdbclient.data.model.artist.Artist
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistCacheDataSource
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSource
+import com.droid.tmdbclient.data.repository.artist.datasource.ArtistRemoteDatasource
 import com.droid.tmdbclient.domain.repository.ArtistRepository
 
 class ArtistRepositoryImpl(

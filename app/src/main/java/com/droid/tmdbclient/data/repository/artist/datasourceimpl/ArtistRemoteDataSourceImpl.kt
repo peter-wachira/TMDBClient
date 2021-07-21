@@ -1,9 +1,9 @@
 package com.droid.tmdbclient.data.repository.artist.datasourceimpl
 
 
-import ArtistRemoteDatasource
 import com.droid.tmdbclient.data.api.TMDBService
 import com.droid.tmdbclient.data.model.artist.ArtistList
+import com.droid.tmdbclient.data.repository.artist.datasource.ArtistRemoteDatasource
 
 import retrofit2.Response
 
