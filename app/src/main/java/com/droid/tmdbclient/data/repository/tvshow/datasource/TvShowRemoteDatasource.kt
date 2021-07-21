@@ -4,5 +4,5 @@ import com.droid.tmdbclient.data.model.tvshow.TvShowList
 import retrofit2.Response
 
 interface TvShowRemoteDatasource {
-   suspend fun getTvShows(): Response<TvShowList>
+    suspend fun getTvShows(): Response<TvShowList>
 }
