@@ -8,7 +8,7 @@ import com.droid.tmdbclient.R
 import com.droid.tmdbclient.databinding.ActivityHomeBinding
 import com.droid.tmdbclient.presentation.artist.ArtistActivity
 import com.droid.tmdbclient.presentation.movie.MovieActivity
-import com.droid.tmdbclient.presentation.tv.TvShowActivity
+import com.droid.tmdbclient.presentation.tvshows.TvShowActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.tvButton.setOnClickListener {
-            val intent = Intent(this,TvShowActivity::class.java)
+            val intent = Intent(this, TvShowActivity::class.java)
             startActivity(intent)
         }
 
