@@ -4,15 +4,17 @@ import android.util.Log
 import com.droid.tmdbclient.data.model.tvshow.TvShow
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDataSource
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowLocalDataSource
-import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDataSource
+import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDatasource
 import com.droid.tmdbclient.domain.repository.TvShowRepository
+import java.lang.Exception
+
 class TvShowRepositoryImpl(
-    private val tvShowRemoteDatasource: TvShowRemoteDataSource,
+    private val tvShowRemoteDatasource: TvShowRemoteDatasource,
     private val tvShowLocalDataSource: TvShowLocalDataSource,
     private val tvShowCacheDataSource: TvShowCacheDataSource
 ) : TvShowRepository {
     override suspend fun getTvShows(): List<TvShow>? {
-        return getTvShowsFromCache()
+       return getTvShowsFromCache()
     }
 
     override suspend fun updateTvShows(): List<TvShow>? {
@@ -40,7 +42,8 @@ class TvShowRepositoryImpl(
     suspend fun getTvShowsFromDB():List<TvShow>{
         lateinit var tvShowsList: List<TvShow>
         try {
-            tvShowsList = tvShowLocalDataSource.getTvShowsFromDB()
+
+           tvShowsList = tvShowLocalDataSource.getTvShowsFromDB()
         } catch (exception: Exception) {
             Log.i("MyTag", exception.message.toString())
         }
@@ -70,4 +73,5 @@ class TvShowRepositoryImpl(
 
         return tvShowsList
     }
+
 }
