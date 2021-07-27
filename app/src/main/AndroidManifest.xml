@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="com.droid.tmdbclient.presentation.artist.ArtistActivity"></activity>
-        <activity android:name="com.droid.tmdbclient.presentation.tv.TvShowActivity" />
+        <activity android:name="com.droid.tmdbclient.presentation.tvshows.TvShowActivity" />
         <activity android:name="com.droid.tmdbclient.presentation.movie.MovieActivity" />
         <activity android:name="com.droid.tmdbclient.presentation.HomeActivity">
             <intent-filter>
