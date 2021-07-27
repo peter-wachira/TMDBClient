@@ -1,14 +1,14 @@
 package com.droid.tmdbclient.data.repository
 
-import ArtistRemoteDataSource
 import android.util.Log
 import com.droid.tmdbclient.data.model.artist.Artist
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistCacheDataSource
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSource
+import com.droid.tmdbclient.data.repository.artist.datasource.ArtistRemoteDatasource
 import com.droid.tmdbclient.domain.repository.ArtistRepository
 
 class ArtistRepositoryImpl(
-    private val artistRemoteDataSource: ArtistRemoteDataSource,
+    private val artistRemoteDataSource: ArtistRemoteDatasource,
     private val artistLocalDataSource: ArtistLocalDataSource,
     private val artistCacheDataSource: ArtistCacheDataSource
 ) : ArtistRepository {
@@ -16,7 +16,7 @@ class ArtistRepositoryImpl(
         return  getArtistsFromCache()
     }
 
-    override suspend fun updateArtist(): List<Artist>? {
+    override suspend fun updateArtists(): List<Artist>? {
         val newListOfArtists = getArtistsFromAPI()
         artistLocalDataSource.clearAll()
         artistLocalDataSource.saveArtistsToDB(newListOfArtists)

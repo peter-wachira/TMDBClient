@@ -4,14 +4,14 @@ import android.util.Log
 import com.droid.tmdbclient.data.model.tvshow.TvShow
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDataSource
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowLocalDataSource
-import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDataSource
-import com.droid.tmdbclient.domain.repository.TvShowsRepository
+import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDatasource
+import com.droid.tmdbclient.domain.repository.TvShowRepository
 
 class TvShowRepositoryImpl(
-    private val tvShowRemoteDataSource: TvShowRemoteDataSource,
+    private val tvShowRemoteDataSource: TvShowRemoteDatasource,
     private val tvShowLocalDataSource: TvShowLocalDataSource,
     private val tvShowCacheDataSource: TvShowCacheDataSource
-) : TvShowsRepository {
+) : TvShowRepository {
 
     override suspend fun getTvShows(): List<TvShow>? {
         return getMoviesFromCache()
@@ -21,7 +21,7 @@ class TvShowRepositoryImpl(
     override suspend fun updateTvShows(): List<TvShow>? {
         val newListOfTvShows = getTvShowsFromAPI()
         tvShowLocalDataSource.clearAll()
-        tvShowLocalDataSource.saveTvShowToDB(newListOfTvShows)
+        tvShowLocalDataSource.saveTvShowsToDB(newListOfTvShows)
         tvShowCacheDataSource.saveTvShowsToCache(newListOfTvShows)
         return newListOfTvShows
     }
@@ -47,7 +47,7 @@ class TvShowRepositoryImpl(
         lateinit var tvShowList: List<TvShow>
 
         try {
-            tvShowList = tvShowLocalDataSource.getTvShowFromDB()
+            tvShowList = tvShowLocalDataSource.getTvShowsFromDB()
 
         } catch (exception: Exception) {
             Log.i("MYTAG", exception.message.toString())
@@ -55,7 +55,7 @@ class TvShowRepositoryImpl(
                 return tvShowList
             } else {
                 tvShowList = getTvShowsFromAPI()
-                tvShowLocalDataSource.saveTvShowToDB(tvShowList)
+                tvShowLocalDataSource.saveTvShowsToDB(tvShowList)
             }
         }
 
@@ -75,7 +75,7 @@ class TvShowRepositoryImpl(
             return tvShowList
         } else {
             tvShowList = getTvShowsFromAPI()
-            tvShowLocalDataSource.saveTvShowToDB(tvShowList)
+            tvShowLocalDataSource.saveTvShowsToDB(tvShowList)
         }
         return tvShowList
     }
