@@ -27,7 +27,7 @@ class App : Application(), Injector {
     }
 
     override fun createArtistSubComponent(): ArtistSubComponent {
-        return appComponent.artsitSubComponent().create()
+        return appComponent.artistSubComponent().create()
 
     }
 

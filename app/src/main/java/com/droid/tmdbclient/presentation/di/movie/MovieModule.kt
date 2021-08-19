@@ -6,15 +6,19 @@ import com.droid.tmdbclient.presentation.movie.MovieViewModelFactory
 import dagger.Module
 import dagger.Provides
 
+
 @Module
 class MovieModule {
-
     @MovieScope
     @Provides
     fun provideMovieViewModelFactory(
         getMoviesUseCase: GetMoviesUseCase,
-        updateMoviesUseCase: UpdateMoviesUsecase
+        updateMoviesUsecase: UpdateMoviesUsecase
     ): MovieViewModelFactory {
-        return MovieViewModelFactory(getMoviesUseCase, updateMoviesUseCase)
+        return MovieViewModelFactory(
+            getMoviesUseCase,
+            updateMoviesUsecase
+        )
     }
+
 }

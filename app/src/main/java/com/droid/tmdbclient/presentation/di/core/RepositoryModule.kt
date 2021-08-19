@@ -13,6 +13,7 @@ import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDataSou
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowLocalDataSource
 import com.droid.tmdbclient.data.repository.tvshow.datasource.TvShowRemoteDatasource
 import com.droid.tmdbclient.domain.repository.ArtistRepository
+import com.droid.tmdbclient.domain.repository.MovieRepository
 import com.droid.tmdbclient.domain.repository.TvShowRepository
 import dagger.Module
 import dagger.Provides
@@ -21,18 +22,21 @@ import javax.inject.Singleton
 @Module
 class RepositoryModule {
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideMovieRepository(
         movieRemoteDatasource: MovieRemoteDatasource,
         movieLocalDataSource: MovieLocalDataSource,
         movieCacheDataSource: MovieCacheDataSource
-    ): MovieRepositoryImpl {
+    ): MovieRepository {
+
         return MovieRepositoryImpl(
             movieRemoteDatasource,
             movieLocalDataSource,
             movieCacheDataSource
         )
+
+
     }
 
 

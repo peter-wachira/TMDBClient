@@ -11,7 +11,7 @@ import dagger.Provides
 class UseCaseModule {
 
     @Provides
-    fun provideMovieUseCase(movieRepository: MovieRepository): GetMoviesUseCase {
+    fun provideGetMovieUseCase(movieRepository: MovieRepository): GetMoviesUseCase {
         return GetMoviesUseCase(movieRepository)
     }
 

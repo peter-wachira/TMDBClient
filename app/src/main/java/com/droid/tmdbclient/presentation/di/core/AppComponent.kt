@@ -23,6 +23,7 @@ interface AppComponent {
 
     fun movieSubComponent(): MovieSubComponent.Factory
     fun tvShowSubComponent(): TvShowSubComponent.Factory
-    fun artsitSubComponent(): ArtistSubComponent.Factory
+    fun artistSubComponent(): ArtistSubComponent.Factory
+
 
 }
