@@ -11,9 +11,6 @@ import com.droid.tmdbclient.presentation.di.tvshow.TvShowSubComponent
 class App : Application(), Injector {
     private lateinit var appComponent: AppComponent
 
-    override fun createMovieSubComponent(): MovieSubComponent {
-        return appComponent.movieSubComponent().create()
-    }
 
     override fun onCreate() {
         super.onCreate()
@@ -32,6 +29,10 @@ class App : Application(), Injector {
     override fun createArtistSubComponent(): ArtistSubComponent {
         return appComponent.artsitSubComponent().create()
 
+    }
+
+    override fun createMovieSubComponent(): MovieSubComponent {
+        return appComponent.movieSubComponent().create()
     }
 
 }
