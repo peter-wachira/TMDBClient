@@ -1,10 +1,9 @@
 package com.droid.tmdbclient.presentation.di.tvshow
 
-import com.droid.tmdbclient.presentation.di.artist.ArtistScope
 import com.droid.tmdbclient.presentation.tvshows.TvShowActivity
 import dagger.Subcomponent
 
-@ArtistScope
+@TvShowScope
 @Subcomponent(
     modules = [
         TvShowModule::class
