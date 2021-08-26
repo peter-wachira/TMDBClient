@@ -29,6 +29,7 @@ class MovieActivity : AppCompatActivity() {
         val responseLiveData = movieViewModel.getMovies()
         responseLiveData.observe(this, Observer {
             Log.i("MyYAG", "Response : ${it.toString()} ")
+
         })
 
     }
