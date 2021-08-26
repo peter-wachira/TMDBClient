@@ -32,6 +32,7 @@ class MovieActivity : AppCompatActivity() {
 
         })
 
+
     }
 
 
