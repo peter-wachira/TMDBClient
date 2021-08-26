@@ -1,4 +1,4 @@
-package com.droid.tmdbclient.data.repository.artist.datasourceImpl
+package com.droid.tmdbclient.data.repository.artist.datasourceimpl
 
 import com.droid.tmdbclient.data.model.artist.Artist
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistCacheDataSource
