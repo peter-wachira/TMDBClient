@@ -1,14 +1,12 @@
 package com.droid.tmdbclient.presentation.di.movie
 
-import com.droid.tmdbclient.presentation.di.artist.ArtistScope
-import com.droid.tmdbclient.presentation.di.tvshow.TvShowModule
 import com.droid.tmdbclient.presentation.movie.MovieActivity
 import dagger.Subcomponent
 
-@ArtistScope
+@MovieScope
 @Subcomponent(
     modules = [
-        TvShowModule::class
+        MovieModule::class
     ]
 )
 interface MovieSubComponent {

@@ -1,7 +1,6 @@
 package com.droid.tmdbclient.presentation.di.artist
 
 import com.droid.tmdbclient.presentation.artist.ArtistActivity
-import com.droid.tmdbclient.presentation.di.movie.MovieSubComponent
 import dagger.Subcomponent
 
 @ArtistScope
@@ -15,6 +14,6 @@ interface ArtistSubComponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(): MovieSubComponent
+        fun create(): ArtistSubComponent
     }
 }
