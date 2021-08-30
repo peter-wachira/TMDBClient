@@ -5,7 +5,7 @@
 </p>
 
 # Movies
-This is my app working with clean architecture. It gets data from the [TMDB API](https://www.themoviedb.org/documentation/api) and entertains the user using
+This is my simple app working with clean architecture. It gets data from the [TMDB API](https://www.themoviedb.org/documentation/api) and entertains the user using
 clean architecture and MVVM.
 
 ## Prerequisite
