@@ -2,6 +2,9 @@ package com.droid.tmdbclient.presentation.movie
 
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -41,10 +44,37 @@ class MovieActivity : AppCompatActivity() {
 
     }
 
-    private fun displayMovies() {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.update, menu)
+        return true
+    }
 
+
+    private fun updateMovies() {
         binding.movieProgressBar.show()
+        val response = movieViewModel.updateMovies()
+        response.observe(this, Observer {
+            if (it != null) {
+                adapter.submitList(it.toMutableList())
+                binding.movieProgressBar.hide()
+            }
+        })
+    }
 
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                updateMovies()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun displayMovies() {
+        binding.movieProgressBar.show()
         val responseLiveData = movieViewModel.getMovies()
         responseLiveData.observe(this, Observer {
             if (it != null) {
