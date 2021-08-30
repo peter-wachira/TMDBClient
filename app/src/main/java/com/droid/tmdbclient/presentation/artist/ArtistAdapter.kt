@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.droid.tmdbclient.data.model.artist.Artist
 import com.droid.tmdbclient.databinding.ListItemBinding
 
@@ -15,7 +16,9 @@ class ArtistAdapter : ListAdapter<Artist, ArtistAdapter.ViewHolder>(diffUtil) {
         fun bind(artist: Artist) {
             with(binding) {
                 titleTextView.text = artist.name
-
+                Glide.with(imageView.context)
+                    .load("https://image.tmdb.org/t/p/w500" + artist.profilePath)
+                    .into(imageView)
             }
         }
     }
