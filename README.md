@@ -26,6 +26,28 @@ Head over to the TMDB api above and get your own API-KEY as well.
 
 ## Architecture
 
+### Implemented by Clean Architecture
+The following diagram shows the structure of this project with 3 layers:
+- Presentation
+- Domain
+- Data
+
+<br>
+<p align="center">
+  <img src="https://github.com/peter-wachira/TMDBClient/blob/master/diagram.png" width="750"/>
+</p>
+<br>
+
+### Communication between layers
+
+1. UI calls method from ViewModel.
+2. ViewModel executes Use case.
+3. Use case combines data from TvShow, Movie and Artist Repositories.
+4. Each Repository returns data from a Data Source (Cached or Remote).
+5. Information flows back to the UI where we display the list of posts.
+
+
+
 The App is not organized into multiple modules but follows the same principles of
 the Presentation, Domain, and Data Layers.
 The presentation layer handles the UI work with the logic contained in the **ViewModel**.
