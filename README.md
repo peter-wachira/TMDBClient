@@ -8,10 +8,6 @@
 This is my app working with clean architecture. It gets data from the [TMDB API](https://www.themoviedb.org/documentation/api) and entertains the user using
 clean architecture and MVVM.
 
-<a href="https://bit.ly/moveery">
-  <img align="center" alt="Get it on Google Play" src="https://github.com/peter-wachira/TMDBClient/blob/master/art/play.png" />
-</a>
-
 ## Prerequisite
 
 minSdkVersion -> 26
