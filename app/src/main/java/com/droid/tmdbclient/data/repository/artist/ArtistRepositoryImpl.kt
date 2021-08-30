@@ -5,9 +5,7 @@ import com.droid.tmdbclient.data.model.artist.Artist
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistCacheDataSource
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSource
 import com.droid.tmdbclient.data.repository.artist.datasource.ArtistRemoteDatasource
-
 import com.droid.tmdbclient.domain.repository.ArtistRepository
-import java.lang.Exception
 
 class ArtistRepositoryImpl(
     private val artistRemoteDatasource: ArtistRemoteDatasource,
@@ -53,7 +51,7 @@ class ArtistRepositoryImpl(
         if(artistList.size>0){
             return artistList
         }else{
-            artistList=getArtistsFromDB()
+            artistList = getArtistsFromAPI()
             artistLocalDataSource.saveArtistsToDB(artistList)
         }
 
