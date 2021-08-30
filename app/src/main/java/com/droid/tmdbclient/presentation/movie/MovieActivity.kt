@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.droid.tmdbclient.R
@@ -25,10 +24,13 @@ class MovieActivity : AppCompatActivity() {
     private lateinit var movieViewModel: MovieViewModel
     private lateinit var adapter: MovieAdapter
 
-    private lateinit var binding: ActivityMovieBinding
+    private val binding: ActivityMovieBinding by lazy {
+        ActivityMovieBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
+        setContentView(binding.root)
         (application as Injector).createMovieSubComponent()
             .inject(this)
         movieViewModel = ViewModelProvider(this, factory).get(MovieViewModel::class.java)
@@ -54,7 +56,7 @@ class MovieActivity : AppCompatActivity() {
     private fun updateMovies() {
         binding.movieProgressBar.show()
         val response = movieViewModel.updateMovies()
-        response.observe(this, Observer {
+        response.observe(this, {
             if (it != null) {
                 adapter.submitList(it.toMutableList())
                 binding.movieProgressBar.hide()
