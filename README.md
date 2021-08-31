@@ -4,8 +4,8 @@
 </a>
 </p>
 
-# Movies
-This is my simple app working with clean architecture. It gets data from the [TMDB API](https://www.themoviedb.org/documentation/api) and entertains the user using
+# TMDB Client
+This is my simple app demonstration the use of clean architecture. It gets data from the [TMDB API](https://www.themoviedb.org/documentation/api) and entertains the user using
 clean architecture and MVVM.
 
 ## Prerequisite
@@ -23,6 +23,7 @@ Head over to the TMDB api above and get your own API-KEY as well.
 - [Flow](#flow)
 - [Libraries](#libraries)
 - [Extras](#extras)
+- [Contacts](#Contacts)
 
 ## Architecture
 
@@ -84,6 +85,14 @@ This app takes use of the following libraries:
 
 ## Extras
 
+### Known Bugs
+
+- There are currently no tests done for this project
+- As at the time this project was made, testing and UIs was not a major concern 
+- The project is currently not being maintained any more. Contributions are most welcome if you would like to add more modules to the project, you can reach me through my [Contacts](#Contacts) below.
+- Thanks for understanding.
+
+
 #### CI-Pipeline
 
 [Github Actions CI](https://github.com/features/actions/) is used for Continuous Integration every time an update is made
@@ -108,3 +117,13 @@ always going to be A :)
    See the License for the specific language governing permissions and
    limitations under the License.
 ```
+
+
+
+## Contacts
+
+```bash
+
+You can reach me via my personal email pwachira900@gmail.com or my website for contibutions or reuse
+
+
