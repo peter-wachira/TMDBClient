@@ -1,8 +1,9 @@
+# TMDB Client
+
 
 #### July 20th 2021
 #### By **peteHack**
 
-# TMDB Client
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/550c2893ba1a45339589435926a1d709)](https://app.codacy.com/gh/peter-wachira/TMDBClient?utm_source=github.com&utm_medium=referral&utm_content=peter-wachira/TMDBClient&utm_campaign=Badge_Grade_Settings)
 
 
