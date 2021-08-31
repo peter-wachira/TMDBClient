@@ -26,7 +26,7 @@ Head over to the TMDB api above and get your own API-KEY as well.
 
 ## Architecture
 
-### Implemented by Clean Architecture
+### Implemented using Clean Architecture
 The following diagram shows the structure of this project with 3 layers:
 - Presentation
 - Domain
