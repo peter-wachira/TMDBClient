@@ -103,7 +103,7 @@ to the repo. The configuration is in the .develop.yml .master.yml .branch.yml***
 #### Code Analysis and test coverage
 
 This code uses [Codacy](https://www.codacy.com/) for analysing the quality of the code, which is
-always going to be A :)
+always going to be > B :)
 ```
    Copyright 2020 Peter Wachira
    
